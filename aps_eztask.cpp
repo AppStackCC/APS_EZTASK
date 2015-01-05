@@ -1,15 +1,21 @@
 /*
-  msp2.cpp Mii Serial Protocol
-  Serial Protocol Send and Receive
-  @Auther ultra_mcu@msn.com
-  @Date 2015/01/04
-  @Tool Arduino 1.0.6 on OSX
+  aps_eztask.cpp AppStack easy task for Arduino
+  =======
+  WEBSITE
+  =======
+  https://www.facebook.com/appstack.in.th
+  http://www.appstack.in.th
+  <------------------------------------------------------------------->
+  @Auther  - ultra_mcu[at]msn[dot]com 
+           - https://www.facebook.com/piakstudio
+  @Date 
+           - 2015/01/05 , Version 0.1b
+  @Tool 
+           - Arduino 1.0.6 on OSX
 */
-
 
 #include "Arduino.h"
 #include "aps_eztask.h"
-
 
 
 APS_EZTASK::APS_EZTASK(uint8_t max)
