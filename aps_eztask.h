@@ -6,10 +6,10 @@
   https://www.facebook.com/appstack.in.th
   http://www.appstack.in.th
   <------------------------------------------------------------------->
-	@Auther  
+	@Author  
            - ultra_mcu@Piak Studiolo LEGO eiei
 	@Date 
-           - 2015/01/05 , Version 0.1b
+           - 2015/01/05 , Version 0.1
 	@Tool 
            - Arduino 1.0.6 on OSX
 */
@@ -33,7 +33,7 @@ typedef struct
   void (*fn)(void);
   uint32_t time_cnt;
   uint32_t time_interval_ms;
-  uint8_t in_service;
+  uint8_t enable;
   
 }st_task;
 
@@ -41,16 +41,16 @@ class APS_EZTASK
 {
   public:
     APS_EZTASK(uint8_t max);
-    int add(void (*fn)(void),int interval_ms,int in_service);
+    int add(void (*fn)(void),int interval_ms,int enable);
     void run();
-    uint8_t is_enable();
-    void set_enable();
-    void set_disable();
+    uint8_t is_running();
+    void start();
+    void stop();
 
   private:
     st_task *task;
     uint8_t task_tail_cnt;
-    uint8_t task_enable_all;
+    uint8_t running_status;
     uint8_t task_cnt_loop;
     uint8_t task_max;
 
