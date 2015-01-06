@@ -6,8 +6,8 @@
   https://www.facebook.com/appstack.in.th
   http://www.appstack.in.th
   <------------------------------------------------------------------->
-	@Auther  - ultra_mcu[at]msn[dot]com 
-           - [https://www.facebook.com/piakstudio]
+	@Auther  
+           - ultra_mcu@Piak Studiolo LEGO eiei
 	@Date 
            - 2015/01/05 , Version 0.1b
 	@Tool 

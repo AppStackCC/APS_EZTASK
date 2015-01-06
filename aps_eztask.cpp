@@ -6,8 +6,8 @@
   https://www.facebook.com/appstack.in.th
   http://www.appstack.in.th
   <------------------------------------------------------------------->
-  @Auther  - ultra_mcu[at]msn[dot]com 
-           - https://www.facebook.com/piakstudio
+  @Auther  
+           - ultra_mcu@Piak Studiolo LEGO eiei
   @Date 
            - 2015/01/05 , Version 0.1b
   @Tool 
@@ -45,8 +45,10 @@ int APS_EZTASK::add(void (*fn)(void),int interval_ms,int in_service)
 
 void APS_EZTASK::run()
 {
-  for(task_cnt_loop = 0; ((task_cnt_loop < task_tail_cnt) && (task_enable_all == _TRUE_)); task_cnt_loop++)
+  if(task_enable_all == _TRUE_)
   {
+    for(task_cnt_loop = 0; task_cnt_loop < task_tail_cnt; task_cnt_loop++)
+    {
       if ((millis() - task[task_cnt_loop].time_cnt) > task[task_cnt_loop].time_interval_ms)
       {
         task[task_cnt_loop].time_cnt = millis();
@@ -55,6 +57,7 @@ void APS_EZTASK::run()
           (*task[task_cnt_loop].fn)();
         }
       }
+    }
   }
 }
 
