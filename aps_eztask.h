@@ -9,6 +9,7 @@
 	@Author  
            - ultra_mcu@Piak Studiolo LEGO eiei
 	@Date 
+           - 2015/01/07 , Version 0.2a
            - 2015/01/07 , Version 0.2
            - 2015/01/07 , Version 0.1c
            - 2015/01/05 , Version 0.1
@@ -44,8 +45,10 @@ class APS_EZTASK
   public:
     APS_EZTASK(uint8_t max);
     int add(void (*fn)(void),int interval_ms,int enable);
-    void run();
+    int set_interval(int index,int interval_ms);
+    int get_interval(int index);
     uint8_t is_running();
+    void run();
     void start();
     void stop();
 

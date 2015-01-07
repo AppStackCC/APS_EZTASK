@@ -9,6 +9,7 @@
   @Author  
            - ultra_mcu@Piak Studiolo LEGO eiei
   @Date 
+           - 2015/01/07 , Version 0.2a
            - 2015/01/07 , Version 0.2
            - 2015/01/07 , Version 0.1c
            - 2015/01/05 , Version 0.1
@@ -28,6 +29,7 @@ APS_EZTASK::APS_EZTASK(uint8_t max)
   }
 
   this->task_max = max;
+  this->task_tail_cnt = 0;
   this->task = (st_task *)malloc(sizeof(st_task) * max);
   memset(this->task,0,sizeof(st_task) * max);
   
@@ -38,19 +40,48 @@ APS_EZTASK::APS_EZTASK(uint8_t max)
 int APS_EZTASK::add(void (*fn)(void),int interval_ms,int enable)
 {
 
+  uint8_t index = 0;
   if(this->task_tail_cnt < this->task_max)
   {
+    index = this->task_tail_cnt;
     this->task[this->task_tail_cnt].fn = fn;
     this->task[this->task_tail_cnt].time_interval_ms = interval_ms;
     this->task[this->task_tail_cnt].enable = enable;
     this->task_tail_cnt++;
     
+    return index;
+  }
+
+  
+  return -1;
+  
+  
+}
+
+int APS_EZTASK::set_interval(int index,int interval_ms)
+{
+
+  if(index < this->task_max)
+  {
+    this->task[index].time_interval_ms = interval_ms;
+    
     return _TRUE_;
   }
-  else
+
+
+  return _FALSE_;
+  
+}
+
+int APS_EZTASK::get_interval(int index)
+{
+
+  if(index < this->task_max)
   {
-    return _FALSE_;
+    return this->task[index].time_interval_ms;
   }
+  
+  return -1;
   
 }
 
