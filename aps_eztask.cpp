@@ -61,7 +61,7 @@ int APS_EZTASK::add(void (*fn)(void),int interval_ms,int enable)
 int APS_EZTASK::set_interval(int index,int interval_ms)
 {
 
-  if(index < this->task_max)
+  if(index < this->task_max && index < this->task_tail_cnt)
   {
     this->task[index].time_interval_ms = interval_ms;
     
@@ -76,7 +76,7 @@ int APS_EZTASK::set_interval(int index,int interval_ms)
 int APS_EZTASK::get_interval(int index)
 {
 
-  if(index < this->task_max)
+  if(index < this->task_max && index < this->task_tail_cnt)
   {
     return this->task[index].time_interval_ms;
   }

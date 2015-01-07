@@ -27,9 +27,13 @@
 #define _TASK_ENABLE_ 99
 #define _TASK_DISABLE_ 0
 
-
-#define _TRUE_ 1
-#define _FALSE_ 0
+#ifndef _TRUE_
+  #define _TRUE_ 1
+#endif
+           
+#ifndef _FALSE_
+  #define _FALSE_ 0
+#endif
 
 typedef struct 
 {
