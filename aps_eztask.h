@@ -9,8 +9,9 @@
 	@Author  
            - ultra_mcu@Piak Studiolo LEGO eiei
 	@Date 
-           - 2015/01/05 , Version 0.1
+           - 2015/01/07 , Version 0.2
            - 2015/01/07 , Version 0.1c
+           - 2015/01/05 , Version 0.1
 	@Tool 
            - Arduino 1.0.6 on OSX
 */

@@ -9,8 +9,9 @@
   @Author  
            - ultra_mcu@Piak Studiolo LEGO eiei
   @Date 
-           - 2015/01/05 , Version 0.1
+           - 2015/01/07 , Version 0.2
            - 2015/01/07 , Version 0.1c
+           - 2015/01/05 , Version 0.1
   @Tool 
            - Arduino 1.0.6 on OSX
 */
@@ -21,10 +22,16 @@
 
 APS_EZTASK::APS_EZTASK(uint8_t max)
 {
+  if(max == 0)
+  {
+    max = 1;
+  }
+
   this->task_max = max;
   this->task = (st_task *)malloc(sizeof(st_task) * max);
   memset(this->task,0,sizeof(st_task) * max);
-  this->running_status = _TRUE_;
+  
+  stop();
 
 }
 
